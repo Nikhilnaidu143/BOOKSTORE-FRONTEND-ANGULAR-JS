@@ -1,0 +1,26 @@
+<div class="reset-form-page">
+    <div class="form-header">
+        <h1 class="form-header-text">Reset Password</h1>
+    </div>
+    <form class="form">
+        <div class="row-content">
+            <h5 class="h5">Email :- </h5>
+            <input type="email" id="email" [(ngModel)]="this.email" class="input email" name="email" placeholder="Enter Email-Id." required>
+        </div>
+        <div class="row-content">
+            <h5 class="h5">New Password :- </h5>
+            <input type="password" [(ngModel)]="this.newPassword" id="pwd" class="input pwd" name="name" placeholder="Enter new password." required>
+        </div>
+        <div class="button-parent">
+            <span class="button-forget">
+                <button (click)="onResetPasswprd()" type="submit" class="button forget-button">Reset Password</button>
+            </span>
+        </div>
+    </form>
+    <br>
+    <div>
+        <span class="button-cancel">
+            <button (click)="onCancel()" type="submit" class="button cancel-button">Cancel</button>
+        </span>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+.header-content {
+    display: flex;
+    flex-direction: row;
+
+    top: 0px;
+    left: 0px;
+    width: 1333px;
+    height: 60px;
+
+    background: #a03037 0% 0% no-repeat padding-box;
+    opacity: 1;
+    color: white;
+}
+.header {
+    padding: 15px 0;
+}
+.logo-text {
+    padding: 5px 0;
+    padding-left: 700px;
+}
+.logo-content {
+    display: flex;
+    flex-direction: row;
+    padding-left: 150px;
+    cursor: pointer;
+}
+.bookstore-logo {
+    top: 19px;
+    left: 164px;
+    width: 31px;
+    height: 24px;
+}
+.book-text {
+    top: 17px;
+    left: 201px;
+    width: 91px;
+    height: 26px;
+    text-align: left;
+    font: normal normal normal 20px/26px Roboto;
+    letter-spacing: 0px;
+    color: #ffffff;
+    text-transform: capitalize;
+    opacity: 1;
+}
+.cart-logo {
+    top: 19px;
+    left: 1166px;
+    width: 20px;
+    height: 21px;
+    background: transparent url("../assets/supermarket.svg") 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.cart-text {
+    top: 23px;
+    left: 1136px;
+    width: 20px;
+    height: 13px;
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0.45px;
+    color: #ffffff;
+    opacity: 1;
+    font-size: large;
+}
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    top: 1273px;
+    left: 0px;
+    width: 1333px;
+    height: 50px;
+    background: #2e1d1e 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.footer-text {
+    padding-left: 450px;
+    top: 1291px;
+    left: 174px;
+    width: 100%;
+    height: 15px;
+    text-align: left;
+    font: normal normal medium 12px/15px Lato;
+    letter-spacing: 0px;
+    color: #ffffff;
+    opacity: 1;
+}
+

@@ -1,0 +1,156 @@
+.header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.input{
+    width: 400px;
+    height: 30px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #BDBDBD;
+    border-radius: 8px;
+    opacity: 1;
+    font: normal normal 16px Roboto;
+}
+.row-content{
+    padding-left: 10px;
+}
+select{
+    height: 30px;
+    border-radius: 8px;
+    font: normal normal 16px Roboto;
+    resize: vertical;
+    border: 1px solid;
+    letter-spacing: 0px;
+    color: black;
+    background-color: transparent;
+    margin-left: 8px;
+}
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px);
+    background-color: #f7f7f7;
+    padding: 30px 0 10px;
+    box-sizing: border-box;
+}
+.book-detail-text {
+    font: normal normal bold 24px/25px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    opacity: 1;
+}
+.book-count {
+    background-color: #a03037;
+    color: #ffffff;
+    border-radius: 42%;
+    font-size: 16px;
+    width: 26px;
+    text-align: center;
+    display: inline-block;
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin-left: 100px;
+}
+.card {
+    top: 132px;
+    left: 174px;
+    width: 233px;
+    height: 270px;
+    flex: 0 0 200px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+}
+.card img {
+    max-width: 100%;
+}
+.card .text {
+    padding: 0 10px 10px;
+}
+.card .text > button {
+    background: gray;
+    border: 0;
+    color: white;
+    width: 100%;
+}
+.img {
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-left: 58px;
+    box-shadow: 0px 3px 6px black;
+}
+.author {
+    top: 340px;
+    left: 196px;
+    width: 63px;
+    height: 12px;
+    text-align: left;
+    font: normal normal normal 10px/12px Lato;
+    letter-spacing: 0px;
+    color: #9d9d9d;
+    opacity: 1;
+}
+.bookname {
+    top: 322px;
+    left: 196px;
+    width: 132px;
+    height: 17px;
+    text-align: left;
+    font: normal normal normal 14px/17px Lato;
+    letter-spacing: 0px;
+    color: #0a0102;
+    opacity: 1;
+}
+.rate {
+    top: 360px;
+    left: 196px;
+    width: 46px;
+    height: 15px;
+    text-align: left;
+    font: normal normal bold 12px/15px Lato;
+    letter-spacing: 0px;
+    color: #0a0102;
+    opacity: 1;
+}
+.cart-button {
+    top: 392px;
+    left: 196px;
+    width: 85px;
+    height: 29px;
+    border-radius: 3px;
+    color: white;
+    background: #a03037 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 1;
+}
+#buttonchange:focus{
+    top: 392px;
+    left: 196px;
+    width: 85px;
+    height: 29px;
+    border-radius: 3px;
+    color: white;
+    background: #3371B5 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 1;
+}
+.wishlist-button {
+    top: 392px;
+    left: 196px;
+    width: 80px;
+    height: 29px;
+    margin-right: 5px;
+}
+.button-parent {
+    display: flex;
+    justify-content: space-between;
+}

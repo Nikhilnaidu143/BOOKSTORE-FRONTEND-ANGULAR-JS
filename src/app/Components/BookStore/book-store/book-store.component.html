@@ -1,0 +1,36 @@
+<div class="main-content">
+    <div class="header-content">
+        <div class="book-detail-text">
+            Books
+            <div class="book-count">{{books.data.length}}</div>
+        </div>
+        <div class="row-content">
+            <input type="text" class="input search" [(ngModel)]="this.searchBook" (input)="onInput()"
+                name="seacrh" placeholder="Search Books.">
+        </div>
+        <select name="sort" id="sort" [(ngModel)]="this.sort" (change)="onChange()">
+            <option disabled hidden value="filter">Filter</option>
+            <option value="Normal">Normal</option>
+            <option value="Ascending">Low To High</option>
+            <option value="Descending">High To Low</option>
+        </select>
+    </div>
+    <div class="cards">
+        <div class="card" *ngFor="let book of books.data">
+            <img class="img" [src]="book.logo" width="80" height="120" alt="image missing.">
+            <div class="text">
+                <p class="bookname">{{book.bookName}}</p>
+                <p class="author">by {{book.author}}</p>
+                <p class="rate">Rs.{{book.price}}</p>
+                <div class="button-parent">
+                    <span class="button-cart">
+                        <button type="submit" id="buttonchange" class="button cart-button" (click)="onAddToBag(book.id)">ADD TO BAG</button>
+                    </span>
+                    <span class="button-wishlist">
+                        <button type="submit" class="button wishlist-button">WISHLIST</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
