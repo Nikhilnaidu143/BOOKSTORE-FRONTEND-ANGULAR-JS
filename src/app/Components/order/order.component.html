@@ -1,0 +1,38 @@
+<div>
+    <h2 class="h2">Checkout Page
+        <button class="cancel" (click)="onCancel()">Cancel</button>
+    </h2>
+</div>
+<form class="media">
+    <div class="h3 order">
+        <h3>Customer details</h3>
+        <div class="row-content">
+            <h5 class="h5">Full Name :- </h5>
+            <input type="text" id="name" [(ngModel)]="full_name" disabled class="input name" name="name">
+        </div>
+        <div class="row-content">
+            <h5 class="h5">Email :- </h5>
+            <input type="email" id="email" [(ngModel)]="user.email" disabled class="input email" name="email">
+        </div>
+        <div class="row-content">
+            <h5 class="h5">Address :- </h5>
+            <input type="text" id="address" name="address" [(ngModel)]="order.address" class="label-text input address-input"
+                placeholder="Enter your address..." required>
+        </div>
+    </div>
+</form>
+<div class="order-summary">
+    <div class="h3 order">
+        <h3>Order summary</h3>
+    </div>
+    <div>
+        <img class="media-object" [src]="bookData.logo" width="80" height="120" alt="Image is missing.">
+    </div>
+    <div class="media-body">
+        <h3 class="bookName">{{bookData.bookName}}</h3>
+        <p class="author">by {{bookData.author}}</p>
+        <p class="rate">Rs. {{bookData.price}}</p>
+        <p class="rate">Quantity :- {{bookData.quantity}}</p>
+        <button class="place-order" (click)="onCheckout()">CHECKOUT</button>
+    </div>
+</div>

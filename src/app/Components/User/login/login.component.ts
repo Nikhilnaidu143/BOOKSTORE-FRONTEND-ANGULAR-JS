@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this.userService.loginCall(this.email, this.password).subscribe((userDetails: any) => {
-      if (this.email === userDetails.data.email && this.password === userDetails.data.password) {
+      if (this.email === userDetails.data.email && this.password === userDetails.data.password && userDetails.data.email != null && userDetails.data.password != null) {
         window.alert("Login successfull...!");
         this.router.navigate(['Book', userDetails.token]);
       }

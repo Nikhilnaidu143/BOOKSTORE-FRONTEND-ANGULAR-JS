@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { ForgetComponent } from './Components/User/forget/forget.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BookStoreComponent } from './Components/BookStore/book-store/book-store.component';
+import { CartComponent } from './Components/cart/cart.component';
+import { OrderComponent } from './Components/order/order.component';
+import { OrderSuccessfullComponent } from './Components/order-successfull/order-successfull.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { BookStoreComponent } from './Components/BookStore/book-store/book-store
     CreateComponent,
     ForgetComponent,
     BookStoreComponent,
+    CartComponent,
+    OrderComponent,
+    OrderSuccessfullComponent,
   ],
   imports: [
     BrowserModule,

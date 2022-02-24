@@ -1,0 +1,120 @@
+.h2 {
+    padding-left: 150px;
+    display: flex;
+    flex-direction: row;
+}
+.cancel{
+    margin-left: 500px;
+    background-color: #a03037;
+    color: #ffffff;
+    width: 100px;
+    border-radius: 10px;
+}
+button{
+    cursor: pointer;
+}
+.media {
+    margin-left: 100px;
+    margin-bottom: 50px;
+    padding-top: 5px;
+    padding-left: 50px;
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    top: 112px;
+    left: 177px;
+    width: 774px;
+    height: 241px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #dcdcdc;
+    border-radius: 20px;
+    opacity: 1;
+}
+.media-object {
+    margin-right: 1em;
+    border-radius: 7px;
+    margin-top: 70px;
+    margin-left: 58px;
+    box-shadow: 0px 3px 6px black;
+}
+.media-body {
+    flex: 1;
+    padding-top: 55px;
+    padding-left: 20px;
+}
+.media-heading {
+    margin: 0 0 0.5em;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+.quantity {
+    background-color: #a03037;
+    color: #ffffff;
+    padding-top: 2px;
+    border-radius: 42%;
+    font-size: 16px;
+    width: 26px;
+    text-align: center;
+    display: inline-block;
+}
+.quantity-increase {
+    margin-left: 5px;
+}
+.button {
+    margin-right: 5px;
+    border-radius: 10px;
+}
+.place-order {
+    margin-top: 16px;
+    margin-left: 400px;
+    top: 308px;
+    left: 772px;
+    width: 151px;
+    height: 35px;
+    color: white;
+    background: #3371b5 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 1;
+    font-size: larger;
+}
+.deleteItem{
+    margin-left: 5px;
+    height: 20px;
+    padding-bottom: 18px;
+    border-radius: 5px;
+}
+.author {
+    top: 340px;
+    left: 196px;
+    width: 63px;
+    height: 12px;
+    text-align: left;
+    font: normal normal normal 10px/12px Lato;
+    letter-spacing: 0px;
+    color: #9d9d9d;
+    opacity: 1;
+}
+.bookName {
+    top: 322px;
+    left: 196px;
+    width: 132px;
+    height: 17px;
+    text-align: left;
+    font: normal normal normal 14px/17px Lato;
+    letter-spacing: 0px;
+    color: #0a0102;
+    opacity: 1;
+}
+.rate {
+    top: 360px;
+    left: 196px;
+    width: 46px;
+    height: 15px;
+    text-align: left;
+    font: normal normal bold 12px/15px Lato;
+    letter-spacing: 0px;
+    color: #0a0102;
+    opacity: 1;
+}

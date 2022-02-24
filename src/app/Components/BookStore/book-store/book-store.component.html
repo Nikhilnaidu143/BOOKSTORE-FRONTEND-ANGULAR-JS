@@ -8,6 +8,13 @@
             <input type="text" class="input search" [(ngModel)]="this.searchBook" (input)="onInput()"
                 name="seacrh" placeholder="Search Books.">
         </div>
+        <div class="logo-content" (click)="onClickCartLogo()">
+            <div class="logo-text">
+              <span class="cart-text">Cart</span>
+            </div>
+            <img class="cart-logo" src="../../../../assets/cart3.svg" alt="Image is missing.">
+            <div class="cart-count">{{carts.data.length}}</div>
+        </div>
         <select name="sort" id="sort" [(ngModel)]="this.sort" (change)="onChange()">
             <option disabled hidden value="filter">Filter</option>
             <option value="Normal">Normal</option>

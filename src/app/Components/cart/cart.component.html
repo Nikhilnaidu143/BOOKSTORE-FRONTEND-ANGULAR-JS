@@ -1,0 +1,24 @@
+<div>
+  <h2 class="h2">My Cart ({{cartItems.length}})
+    <button class="cancel" (click)="cancel()">Cancel</button>
+  </h2>
+</div>
+<div class="media" *ngFor="let item of booksInCart">
+  <div>
+    <div>
+      <img class="media-object" [src]="item.logo" width="80" height="120" alt="Image is missing.">
+    </div>
+  </div>
+  <div class="media-body">
+    <h3 class="bookName">{{item.bookName}}</h3>
+    <p class="author">by {{item.author}}</p>
+    <p class="rate">Rs. {{item.price}}</p>
+    <span class="buttons">
+      <button class="button quantity-decrease" (click)="decreaseQuantity(item.id , item.quantity)">-</button>
+      <div class="quantity">{{item.quantity}}</div>
+      <button class="button quantity-increase" (click)="increaseQuantity(item.id , item.quantity)">+</button>
+      <button class="deleteItem" (click)="remove(item.id)">Remove</button>
+    </span>
+    <button (click)="onPlaceOrder(item.id)" class="place-order">Place Order</button>
+  </div>
+</div>

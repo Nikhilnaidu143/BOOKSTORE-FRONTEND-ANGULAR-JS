@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Cart } from 'src/app/Models/Cart';
 import { BookService } from 'src/app/Services/book.service';
+import { CartService } from 'src/app/Services/cart.service';
 
 @Component({
   selector: 'app-book-store',
@@ -12,12 +14,13 @@ export class BookStoreComponent implements OnInit {
   books: any = [];
   sort: string;
   searchBook: string = "";
-  count: number = 0;
+  carts:any=[];
 
-  constructor(private activatedRoute: ActivatedRoute, private bookService: BookService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private bookService: BookService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.userToken = this.activatedRoute.snapshot.paramMap.get('token');
+    this.onChangeCartItems();
     if (this.sort == undefined) {
       this.sort = 'filter';
       this.whileIntializingPage();
@@ -59,9 +62,41 @@ export class BookStoreComponent implements OnInit {
     }
   }
 
-  onAddToBag(id: number) {
-    window.alert(`ID :- ${id}`);
+  onChangeCartItems() {
+    this.cartService.getAllForSpecificUser(this.userToken).subscribe(cartItems => {
+      this.carts = cartItems;
+      console.log(this.carts);
+    });
   }
-    
+
+  /** Adding to bag. */
+  cart: Cart = new Cart(0, 0);
+  onAddToBag(bookId: number) {
+      this.cart.book_id = bookId;
+      this.cart.quantity = 1;
+      this.cartService.addToCart(this.userToken, bookId, this.cart).subscribe((cartData:any) => {
+        console.log(cartData.data);
+        if(cartData.data.book_id == 0 && cartData.data.quantity == 0) {
+          window.alert("You have already added this book to the bag.");
+        }
+        else {
+          this.reloadCurrentRoute();
+        }
+      });
+  }
+
+  /** Refreshing same component. */
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+        console.log(currentUrl);
+    });
+  }
+
+  onClickCartLogo() {
+    this.router.navigate(['Cart' , this.userToken]);
+  }
+
 }
 

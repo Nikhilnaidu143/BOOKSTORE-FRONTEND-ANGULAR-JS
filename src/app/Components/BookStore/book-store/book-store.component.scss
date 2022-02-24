@@ -154,3 +154,41 @@ select{
     display: flex;
     justify-content: space-between;
 }
+.logo-text {
+    padding: 5px 0;
+}
+.logo-content {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+.cart-logo {
+    top: 19px;
+    left: 1166px;
+    width: 20px;
+    height: 21px;
+    opacity: 1;
+}
+.cart-text {
+    top: 23px;
+    left: 1136px;
+    width: 20px;
+    height: 13px;
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0.45px;
+    color: black;
+    opacity: 1;
+    font-size: large;
+}
+.cart-count {
+    padding-top: 2px;
+    font: normal normal bold 24px/25px Roboto;
+    background-color: #a03037;
+    color: #ffffff;
+    border-radius: 52%;
+    font-size: 16px;
+    width: 26px;
+    text-align: center;
+    display: inline-block;
+}

@@ -25,4 +25,14 @@ export class UserService {
     return this.httpClient.get(`http://localhost:8081/user/resetPassword/${token}/${newPassword}`);
   }
 
+  /** Decode token */
+  decodeToken(token:string) {
+    return this.httpClient.get(`http://localhost:8081/user/decode/${token}`);
+  }
+
+  /** Read by id */
+  readById(id:number , token: string) {
+    return this.httpClient.get(`http://localhost:8081/user/read/${id}/${token}`);
+  }
+
 }
