@@ -150,6 +150,14 @@ select{
     height: 29px;
     margin-right: 5px;
 }
+#wishlistButton:focus {
+    top: 392px;
+    left: 196px;
+    width: 80px;
+    height: 29px;
+    margin-right: 5px;
+    background-color: lightcoral;
+}
 .button-parent {
     display: flex;
     justify-content: space-between;

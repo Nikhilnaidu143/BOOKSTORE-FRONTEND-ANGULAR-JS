@@ -7,6 +7,7 @@ import { OrderComponent } from './Components/order/order.component';
 import { CreateComponent } from './Components/User/create/create.component';
 import { ForgetComponent } from './Components/User/forget/forget.component';
 import { LoginComponent } from './Components/User/login/login.component';
+import { WishlistComponent } from './Components/wishlist/wishlist.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'Forget', component: ForgetComponent },
   { path: 'Book/:token', component: BookStoreComponent},
   { path: 'Cart/:token', component: CartComponent},
+  { path: 'Wishlist/:token' , component: WishlistComponent},
   { path: 'Order/:id/:token', component: OrderComponent},
   { path: 'Success/:id/:token', component: OrderSuccessfullComponent}
 ];

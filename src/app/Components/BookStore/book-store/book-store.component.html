@@ -15,6 +15,10 @@
             <img class="cart-logo" src="../../../../assets/cart3.svg" alt="Image is missing.">
             <div class="cart-count">{{carts.data.length}}</div>
         </div>
+        <div class="logo-content" (click)="onClickWishlist()">
+            <img class="heart-logo" width="30" height="27" src="../../../../assets/heart-fill.svg" alt="Image is missing.">
+            <div class="cart-count">{{wishlistItems.data.length}}</div>
+        </div>
         <select name="sort" id="sort" [(ngModel)]="this.sort" (change)="onChange()">
             <option disabled hidden value="filter">Filter</option>
             <option value="Normal">Normal</option>
@@ -34,7 +38,7 @@
                         <button type="submit" id="buttonchange" class="button cart-button" (click)="onAddToBag(book.id)">ADD TO BAG</button>
                     </span>
                     <span class="button-wishlist">
-                        <button type="submit" class="button wishlist-button">WISHLIST</button>
+                        <button type="submit" id="wishlistButton" class="button wishlist-button" (click)="onAddToWishlist(book.id)">WISHLIST</button>
                     </span>
                 </div>
             </div>

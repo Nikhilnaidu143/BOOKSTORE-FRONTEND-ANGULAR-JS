@@ -12,6 +12,7 @@ import { BookStoreComponent } from './Components/BookStore/book-store/book-store
 import { CartComponent } from './Components/cart/cart.component';
 import { OrderComponent } from './Components/order/order.component';
 import { OrderSuccessfullComponent } from './Components/order-successfull/order-successfull.component';
+import { WishlistComponent } from './Components/wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { OrderSuccessfullComponent } from './Components/order-successfull/order-
     CartComponent,
     OrderComponent,
     OrderSuccessfullComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,

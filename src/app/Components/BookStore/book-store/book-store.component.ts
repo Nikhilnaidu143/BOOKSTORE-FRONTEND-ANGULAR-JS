@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from 'src/app/Models/Cart';
+import { Wishlist } from 'src/app/Models/Wishlist';
 import { BookService } from 'src/app/Services/book.service';
 import { CartService } from 'src/app/Services/cart.service';
+import { WishlistService } from 'src/app/Services/wishlist.service';
 
 @Component({
   selector: 'app-book-store',
@@ -15,12 +17,14 @@ export class BookStoreComponent implements OnInit {
   sort: string;
   searchBook: string = "";
   carts:any=[];
+  wishlistItems:any=[];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private bookService: BookService, private cartService: CartService) { }
+  constructor(private wishlistService: WishlistService , private router: Router, private activatedRoute: ActivatedRoute, private bookService: BookService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.userToken = this.activatedRoute.snapshot.paramMap.get('token');
     this.onChangeCartItems();
+    this.onChangeWishlistItems();
     if (this.sort == undefined) {
       this.sort = 'filter';
       this.whileIntializingPage();
@@ -65,7 +69,12 @@ export class BookStoreComponent implements OnInit {
   onChangeCartItems() {
     this.cartService.getAllForSpecificUser(this.userToken).subscribe(cartItems => {
       this.carts = cartItems;
-      console.log(this.carts);
+    });
+  }
+
+  onChangeWishlistItems() {
+    this.wishlistService.getAllWishlistItems(this.userToken).subscribe(wishlistItems => {
+      this.wishlistItems = wishlistItems;
     });
   }
 
@@ -83,6 +92,26 @@ export class BookStoreComponent implements OnInit {
           this.reloadCurrentRoute();
         }
       });
+  }
+
+  /** Adding to wishlist. */
+  wishlist: Wishlist = new Wishlist(0 , 0);
+  onAddToWishlist(bookId: number) {
+    this.wishlist.book_id = bookId;
+    this.wishlist.quantity = 1;
+    this.wishlistService.addToWishlist(this.userToken, bookId, this.wishlist).subscribe((wishlistData:any) => {
+      console.log(wishlistData);
+      if(wishlistData.data.book_id == 0 && wishlistData.data.quantity == 0) {
+        window.alert("You have already added this book to your wishlist.");
+      }
+      else {
+        this.reloadCurrentRoute();
+      }
+    });
+  }
+
+  onClickWishlist() {
+    this.router.navigate(['Wishlist' , this.userToken]);
   }
 
   /** Refreshing same component. */
