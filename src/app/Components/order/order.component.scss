@@ -13,9 +13,13 @@
 button {
     cursor: pointer;
 }
+.total-price{
+    margin-left: 730px;
+    margin-bottom: 10px;
+}
 .media {
     margin-left: 100px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     padding-top: 5px;
     padding-left: 50px;
     margin-top: 20px;
@@ -32,7 +36,7 @@ button {
 }
 .order-summary {
     margin-left: 100px;
-    margin-bottom: 50px;
+    margin-bottom: 16px;
     padding-top: 5px;
     padding-left: 50px;
     margin-top: 20px;
@@ -57,10 +61,11 @@ button {
     padding-top: 60px;
 }
 .place-order {
-    margin-left: 300px;
+    margin-left: 100px;
+    margin-bottom: 50px;
     top: 308px;
     left: 772px;
-    width: 151px;
+    width: 830px;
     height: 35px;
     color: white;
     background: #3371b5 0% 0% no-repeat padding-box;
@@ -123,4 +128,7 @@ button {
     letter-spacing: 0px;
     color: #333232;
     opacity: 1;
+}
+.summary{
+    margin-left: 150px;
 }

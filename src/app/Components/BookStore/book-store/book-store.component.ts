@@ -16,10 +16,10 @@ export class BookStoreComponent implements OnInit {
   books: any = [];
   sort: string;
   searchBook: string = "";
-  carts:any=[];
-  wishlistItems:any=[];
+  carts: any = [];
+  wishlistItems: any = [];
 
-  constructor(private wishlistService: WishlistService , private router: Router, private activatedRoute: ActivatedRoute, private bookService: BookService, private cartService: CartService) { }
+  constructor(private wishlistService: WishlistService, private router: Router, private activatedRoute: ActivatedRoute, private bookService: BookService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.userToken = this.activatedRoute.snapshot.paramMap.get('token');
@@ -40,7 +40,6 @@ export class BookStoreComponent implements OnInit {
   whileIntializingPage() {
     this.bookService.readAllCall(this.userToken).subscribe(booksData => {
       this.books = booksData;
-      console.log(this.books);
     })
   }
 
@@ -81,27 +80,25 @@ export class BookStoreComponent implements OnInit {
   /** Adding to bag. */
   cart: Cart = new Cart(0, 0);
   onAddToBag(bookId: number) {
-      this.cart.book_id = bookId;
-      this.cart.quantity = 1;
-      this.cartService.addToCart(this.userToken, bookId, this.cart).subscribe((cartData:any) => {
-        console.log(cartData.data);
-        if(cartData.data.book_id == 0 && cartData.data.quantity == 0) {
-          window.alert("You have already added this book to the bag.");
-        }
-        else {
-          this.reloadCurrentRoute();
-        }
-      });
+    this.cart.book_id = bookId;
+    this.cart.quantity = 1;
+    this.cartService.addToCart(this.userToken, bookId, this.cart).subscribe((cartData: any) => {
+      if (cartData.data.book_id == 0 && cartData.data.quantity == 0) {
+        window.alert("You have already added this book to the bag.");
+      }
+      else {
+        this.reloadCurrentRoute();
+      }
+    });
   }
 
   /** Adding to wishlist. */
-  wishlist: Wishlist = new Wishlist(0 , 0);
+  wishlist: Wishlist = new Wishlist(0, 0);
   onAddToWishlist(bookId: number) {
     this.wishlist.book_id = bookId;
     this.wishlist.quantity = 1;
-    this.wishlistService.addToWishlist(this.userToken, bookId, this.wishlist).subscribe((wishlistData:any) => {
-      console.log(wishlistData);
-      if(wishlistData.data.book_id == 0 && wishlistData.data.quantity == 0) {
+    this.wishlistService.addToWishlist(this.userToken, bookId, this.wishlist).subscribe((wishlistData: any) => {
+      if (wishlistData.data.book_id == 0 && wishlistData.data.quantity == 0) {
         window.alert("You have already added this book to your wishlist.");
       }
       else {
@@ -111,20 +108,19 @@ export class BookStoreComponent implements OnInit {
   }
 
   onClickWishlist() {
-    this.router.navigate(['Wishlist' , this.userToken]);
+    this.router.navigate(['Wishlist', this.userToken]);
   }
 
   /** Refreshing same component. */
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        this.router.navigate([currentUrl]);
-        console.log(currentUrl);
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
     });
   }
 
   onClickCartLogo() {
-    this.router.navigate(['Cart' , this.userToken]);
+    this.router.navigate(['Cart', this.userToken]);
   }
 
 }

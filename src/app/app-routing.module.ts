@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'Book/:token', component: BookStoreComponent},
   { path: 'Cart/:token', component: CartComponent},
   { path: 'Wishlist/:token' , component: WishlistComponent},
-  { path: 'Order/:id/:token', component: OrderComponent},
-  { path: 'Success/:id/:token', component: OrderSuccessfullComponent}
+  { path: 'Order/:token', component: OrderComponent},
+  { path: 'Success/:token', component: OrderSuccessfullComponent}
 ];
 
 @NgModule({

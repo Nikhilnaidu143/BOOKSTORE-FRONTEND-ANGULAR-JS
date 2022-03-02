@@ -16,23 +16,24 @@
         </div>
         <div class="row-content">
             <h5 class="h5">Address :- </h5>
-            <input type="text" id="address" name="address" [(ngModel)]="order.address" class="label-text input address-input"
+            <input type="text" id="address" name="address" [(ngModel)]="address" class="label-text input address-input"
                 placeholder="Enter your address..." required>
         </div>
     </div>
 </form>
-<div class="order-summary">
-    <div class="h3 order">
-        <h3>Order summary</h3>
-    </div>
+<div class="h3 order summary">
+    <h3>Order summary</h3>
+</div>
+<div class="order-summary" *ngFor="let book of booksData">
     <div>
-        <img class="media-object" [src]="bookData.logo" width="80" height="120" alt="Image is missing.">
+        <img class="media-object" [src]="book.logo" width="80" height="120" alt="Image is missing.">
     </div>
     <div class="media-body">
-        <h3 class="bookName">{{bookData.bookName}}</h3>
-        <p class="author">by {{bookData.author}}</p>
-        <p class="rate">Rs. {{bookData.price}}</p>
-        <p class="rate">Quantity :- {{bookData.quantity}}</p>
-        <button class="place-order" (click)="onCheckout()">CHECKOUT</button>
+        <h3 class="bookName">{{book.bookName}}</h3>
+        <p class="author">by {{book.author}}</p>
+        <p class="rate">Rs. {{book.price}}</p>
+        <p class="rate">Quantity :- {{book.quantity}}</p>
     </div>
 </div>
+<div class="total-price">Total Price (Rs):- {{totalPrice}}</div>
+<button class="place-order" (click)="onCheckout()">CHECKOUT</button>

@@ -6,11 +6,21 @@ import { Injectable } from '@angular/core';
 })
 export class OrderService {
 
-  constructor(private httpClient : HttpClient) { }
+  order_ids: any = [];
+
+  constructor(private httpClient: HttpClient) { }
 
   /** Placing order */
-  placeOrder(token : string , order: any) {
-    return this.httpClient.post(`http://localhost:8083/order/place/${token}` , order , {responseType : "json"});
+  placeOrder(token: string, order: any) {
+    return this.httpClient.post(`http://localhost:8083/order/place/${token}`, order, { responseType: "json" });
+  }
+
+  saveOrderIds(orderIds: any) {
+    this.order_ids.push(orderIds);
+  }
+
+  retriveIds() {
+    return this.order_ids;
   }
 
 }

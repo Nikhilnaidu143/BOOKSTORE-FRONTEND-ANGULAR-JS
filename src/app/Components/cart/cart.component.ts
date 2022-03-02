@@ -18,9 +18,8 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.userToken = this.activatedRoute.snapshot.paramMap.get('token');
-    this.cartService.getAllForSpecificUser(this.userToken).subscribe(resultItems => {
-      let result: any = resultItems;
-      this.cartItems = result.data;
+    this.cartService.getAllForSpecificUser(this.userToken).subscribe((resultItems:any) => {
+      this.cartItems = resultItems.data;
       if (this.cartItems.length < 1) {
         this.cancel();
       }
@@ -36,9 +35,7 @@ export class CartComponent implements OnInit {
   }
 
   decreaseQuantity(bookId: number, quantity: number) {
-    console.log("present quantity :- ", quantity);
     this.newQuantity = quantity - 1;
-    console.log("new quantity :- ", this.newQuantity);
     if (this.newQuantity > 0) {
       this.bookService.changeQuantity(bookId, this.userToken, this.newQuantity).subscribe((result) => {
         this.reloadCurrentRoute();
@@ -51,9 +48,7 @@ export class CartComponent implements OnInit {
   }
 
   increaseQuantity(bookId: number, quantity: number) {
-    console.log("present quantity :- ", quantity);
     this.newQuantity = quantity + 1;
-    console.log("New quantity :- ", this.newQuantity);
     this.bookService.changeQuantity(bookId, this.userToken, this.newQuantity).subscribe((result) => {
       this.reloadCurrentRoute();
     });
@@ -64,7 +59,6 @@ export class CartComponent implements OnInit {
     let currentUrl = this.router.url;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate([currentUrl]);
-      console.log(currentUrl);
     });
   }
 
@@ -77,8 +71,8 @@ export class CartComponent implements OnInit {
     this.router.navigate(['Book', this.userToken]);
   }
 
-  onPlaceOrder(bookId: number) {
-    this.router.navigate([`Order/${bookId}/${this.userToken}`]);
+  onPlaceOrder() {
+    this.router.navigate([`Order/${this.userToken}`]);
   }
 
 }

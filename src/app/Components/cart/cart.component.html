@@ -19,6 +19,6 @@
       <button class="button quantity-increase" (click)="increaseQuantity(item.id , item.quantity)">+</button>
       <button class="deleteItem" (click)="remove(item.id)">Remove</button>
     </span>
-    <button (click)="onPlaceOrder(item.id)" class="place-order">Place Order</button>
   </div>
 </div>
+<button (click)="onPlaceOrder()" class="place-order">Place Order</button>
