@@ -31,7 +31,7 @@ export class WishlistComponent implements OnInit {
         for (let i = 0; i < this.wishlistItems.length; i++) {
           this.bookService.getById(this.wishlistItems[i].book_id, this.userToken).subscribe((books: any) => {
             let result: any = books.data;
-            this.booksInWishlist.push(result);
+            this.booksInWishlist[i] = result;
           });
         }
       }
@@ -55,13 +55,14 @@ export class WishlistComponent implements OnInit {
           window.alert("You have already added this book to the cart.");
         }
         else {
-          this.reloadCurrentRoute();
+          this.ngOnInit();
         }
       });
   }
 
   remove(bookId: number) {
-    this.wishlistService.deleteItem(bookId, this.userToken).subscribe((result) => this.reloadCurrentRoute());
+    this.booksInWishlist.length--;
+    this.wishlistService.deleteItem(bookId, this.userToken).subscribe((result) => this.ngOnInit());
   }
 
   /** On cancel go to books page. */
@@ -71,15 +72,6 @@ export class WishlistComponent implements OnInit {
 
   onCart() {
     this.router.navigate(['Cart' , this.userToken]);
-  }
-  
-  /** Refresh same component. */
-  reloadCurrentRoute() {
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-      console.log(currentUrl);
-    });
   }
 
 }

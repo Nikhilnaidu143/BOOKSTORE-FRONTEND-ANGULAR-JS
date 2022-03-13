@@ -13,6 +13,8 @@ import { CartComponent } from './Components/cart/cart.component';
 import { OrderComponent } from './Components/order/order.component';
 import { OrderSuccessfullComponent } from './Components/order-successfull/order-successfull.component';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { WishlistComponent } from './Components/wishlist/wishlist.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatBadgeModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

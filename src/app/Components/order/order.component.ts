@@ -36,7 +36,7 @@ export class OrderComponent implements OnInit {
       this.cartItems = resultItems.data;
       for (let i = 0; i < this.cartItems.length; i++) {
         this.bookService.getById(this.cartItems[i].book_id, this.userToken).subscribe((books: any) => {
-          this.booksData.push(books.data);
+          this.booksData[i] = books.data;
           this.booksData[i].price = this.booksData[i].price * this.booksData[i].quantity;
           this.totalPrice += this.booksData[i].price;
         });
@@ -64,7 +64,7 @@ export class OrderComponent implements OnInit {
   onCheckout() {
     for (let i = 0; i < this.cartItems.length; i++) {
       this.bookService.getById(this.cartItems[i].book_id, this.userToken).subscribe((books: any) => {
-        this.tempBooksData.push(books.data);
+        this.tempBooksData[i] = books.data;
         this.tempBooksData[i].price = this.tempBooksData[i].price * this.tempBooksData[i].quantity;
 
         var order: Order = new Order(0, 0, "", 0);

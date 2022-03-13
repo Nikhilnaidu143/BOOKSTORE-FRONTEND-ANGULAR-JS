@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
         for (let i = 0; i < this.cartItems.length; i++) {
           this.bookService.getById(this.cartItems[i].book_id, this.userToken).subscribe((books: any) => {
             let result: any = books.data;
-            this.booksInCart.push(result);
+            this.booksInCart[i] = result;
           });
         }
       }
@@ -38,7 +38,7 @@ export class CartComponent implements OnInit {
     this.newQuantity = quantity - 1;
     if (this.newQuantity > 0) {
       this.bookService.changeQuantity(bookId, this.userToken, this.newQuantity).subscribe((result) => {
-        this.reloadCurrentRoute();
+        this.ngOnInit();
       });
     }
     else {
@@ -50,20 +50,13 @@ export class CartComponent implements OnInit {
   increaseQuantity(bookId: number, quantity: number) {
     this.newQuantity = quantity + 1;
     this.bookService.changeQuantity(bookId, this.userToken, this.newQuantity).subscribe((result) => {
-      this.reloadCurrentRoute();
-    });
-  }
-
-  /** Refresh same component. */
-  reloadCurrentRoute() {
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
+      this.ngOnInit();
     });
   }
 
   remove(book_id: number) {
-    this.cartService.deleteItem(book_id, this.userToken).subscribe((result) => this.reloadCurrentRoute());
+    this.booksInCart.length--;
+    this.cartService.deleteItem(book_id, this.userToken).subscribe((result) => this.ngOnInit());
   }
 
   /** On cancel go to books page. */

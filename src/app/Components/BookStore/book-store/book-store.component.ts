@@ -87,7 +87,7 @@ export class BookStoreComponent implements OnInit {
         window.alert("You have already added this book to the bag.");
       }
       else {
-        this.reloadCurrentRoute();
+        this.ngOnInit();
       }
     });
   }
@@ -102,21 +102,13 @@ export class BookStoreComponent implements OnInit {
         window.alert("You have already added this book to your wishlist.");
       }
       else {
-        this.reloadCurrentRoute();
+        this.ngOnInit();
       }
     });
   }
 
   onClickWishlist() {
     this.router.navigate(['Wishlist', this.userToken]);
-  }
-
-  /** Refreshing same component. */
-  reloadCurrentRoute() {
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
   }
 
   onClickCartLogo() {

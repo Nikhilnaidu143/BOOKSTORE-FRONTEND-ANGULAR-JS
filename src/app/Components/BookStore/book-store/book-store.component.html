@@ -12,12 +12,12 @@
             <div class="logo-text">
               <span class="cart-text">Cart</span>
             </div>
-            <img class="cart-logo" src="../../../../assets/cart3.svg" alt="Image is missing.">
-            <div class="cart-count">{{carts.data.length}}</div>
+            <mat-icon *ngIf="carts.data.length < 1">shopping_cart</mat-icon>
+            <mat-icon *ngIf="carts.data.length > 0" matBadge="{{carts.data.length}}" matBadgeColor="accent">shopping_cart</mat-icon>
         </div>
         <div class="logo-content" (click)="onClickWishlist()">
-            <img class="heart-logo" width="30" height="27" src="../../../../assets/heart-fill.svg" alt="Image is missing.">
-            <div class="cart-count">{{wishlistItems.data.length}}</div>
+            <mat-icon *ngIf="wishlistItems.data.length < 1" class="heart-logo">favorite</mat-icon>
+            <mat-icon *ngIf="wishlistItems.data.length > 0" class="heart-logo" matBadge="{{wishlistItems.data.length}}" matBadgeColor="accent">favorite</mat-icon>
         </div>
         <select name="sort" id="sort" [(ngModel)]="this.sort" (change)="onChange()">
             <option disabled hidden value="filter">Filter</option>
