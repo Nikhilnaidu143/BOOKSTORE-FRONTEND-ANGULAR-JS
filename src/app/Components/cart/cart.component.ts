@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.userToken = this.activatedRoute.snapshot.paramMap.get('token');
     this.cartService.getAllForSpecificUser(this.userToken).subscribe((resultItems:any) => {
-      this.cartItems = resultItems.data;
+      this.cartItems = resultItems.data;      
       if (this.cartItems.length < 1) {
         this.cancel();
       }
@@ -28,6 +28,7 @@ export class CartComponent implements OnInit {
           this.bookService.getById(this.cartItems[i].book_id, this.userToken).subscribe((books: any) => {
             let result: any = books.data;
             this.booksInCart[i] = result;
+            this.booksInCart[i].quantity = this.cartItems[i].quantity;
           });
         }
       }
@@ -37,7 +38,7 @@ export class CartComponent implements OnInit {
   decreaseQuantity(bookId: number, quantity: number) {
     this.newQuantity = quantity - 1;
     if (this.newQuantity > 0) {
-      this.bookService.changeQuantity(bookId, this.userToken, this.newQuantity).subscribe((result) => {
+      this.cartService.updateQuantity(bookId, this.userToken, this.newQuantity).subscribe((result) => {
         this.ngOnInit();
       });
     }
@@ -49,14 +50,16 @@ export class CartComponent implements OnInit {
 
   increaseQuantity(bookId: number, quantity: number) {
     this.newQuantity = quantity + 1;
-    this.bookService.changeQuantity(bookId, this.userToken, this.newQuantity).subscribe((result) => {
+    this.cartService.updateQuantity(bookId, this.userToken, this.newQuantity).subscribe((result) => {
       this.ngOnInit();
     });
   }
 
   remove(book_id: number) {
-    this.booksInCart.length--;
-    this.cartService.deleteItem(book_id, this.userToken).subscribe((result) => this.ngOnInit());
+    this.cartService.deleteItem(book_id, this.userToken).subscribe((result) => {
+      this.booksInCart.length--;
+      this.ngOnInit()
+    });
   }
 
   /** On cancel go to books page. */

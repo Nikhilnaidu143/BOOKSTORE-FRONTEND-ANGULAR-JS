@@ -23,7 +23,7 @@ export class CreateComponent implements OnInit {
   }
 
   onCreate() {
-    this.userService.postCall(this.user).subscribe((userDetails:any) => localStorage.setItem(userDetails.data.email , userDetails.token));            
+    this.userService.postCall(this.user).subscribe((userDetails:any) => console.log(userDetails));
     this.router.navigate(['Login']);
   }
 

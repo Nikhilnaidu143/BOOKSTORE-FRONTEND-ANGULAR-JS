@@ -37,6 +37,7 @@ export class OrderComponent implements OnInit {
       for (let i = 0; i < this.cartItems.length; i++) {
         this.bookService.getById(this.cartItems[i].book_id, this.userToken).subscribe((books: any) => {
           this.booksData[i] = books.data;
+          this.booksData[i].quantity = this.cartItems[i].quantity;
           this.booksData[i].price = this.booksData[i].price * this.booksData[i].quantity;
           this.totalPrice += this.booksData[i].price;
         });
@@ -65,6 +66,7 @@ export class OrderComponent implements OnInit {
     for (let i = 0; i < this.cartItems.length; i++) {
       this.bookService.getById(this.cartItems[i].book_id, this.userToken).subscribe((books: any) => {
         this.tempBooksData[i] = books.data;
+        this.tempBooksData[i].quantity = this.cartItems[i].quantity;
         this.tempBooksData[i].price = this.tempBooksData[i].price * this.tempBooksData[i].quantity;
 
         var order: Order = new Order(0, 0, "", 0);

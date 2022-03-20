@@ -4,6 +4,7 @@ import { Cart } from 'src/app/Models/Cart';
 import { Wishlist } from 'src/app/Models/Wishlist';
 import { BookService } from 'src/app/Services/book.service';
 import { CartService } from 'src/app/Services/cart.service';
+import { UserService } from 'src/app/Services/user.service';
 import { WishlistService } from 'src/app/Services/wishlist.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class BookStoreComponent implements OnInit {
   carts: any = [];
   wishlistItems: any = [];
 
-  constructor(private wishlistService: WishlistService, private router: Router, private activatedRoute: ActivatedRoute, private bookService: BookService, private cartService: CartService) { }
+  constructor(private userService: UserService, private wishlistService: WishlistService, private router: Router, private activatedRoute: ActivatedRoute, private bookService: BookService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.userToken = this.activatedRoute.snapshot.paramMap.get('token');

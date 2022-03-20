@@ -61,8 +61,10 @@ export class WishlistComponent implements OnInit {
   }
 
   remove(bookId: number) {
-    this.booksInWishlist.length--;
-    this.wishlistService.deleteItem(bookId, this.userToken).subscribe((result) => this.ngOnInit());
+    this.wishlistService.deleteItem(bookId, this.userToken).subscribe((result) => {
+      this.booksInWishlist.length--;
+      this.ngOnInit()
+    });
   }
 
   /** On cancel go to books page. */

@@ -29,4 +29,9 @@ export class CartService {
     return this.httpClient.delete(`http://localhost:8084/cart/delete/${book_id}/${token}`);
   }
 
+  /** Update quantity */
+  updateQuantity(cart_id:number , token:string , new_quantity:number) {
+    return this.httpClient.get(`http://localhost:8084/cart/update/${cart_id}/${token}?quantity=${new_quantity}`);
+  }
+
 }

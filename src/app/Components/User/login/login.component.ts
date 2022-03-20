@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     this.userService.loginCall(this.email, this.password).subscribe((userDetails: any) => {
       if (this.email === userDetails.data.email && this.password === userDetails.data.password && userDetails.data.email != null && userDetails.data.password != null) {
         window.alert("Login successfull...!");
+        localStorage.setItem(userDetails.data.email , userDetails.token);
         this.router.navigate(['Book', userDetails.token]);
       }
       else {
